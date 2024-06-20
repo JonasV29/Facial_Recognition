@@ -1,4 +1,4 @@
-import cv2 as cv
+import cv2 as cv #importing OpenCV library
 
 video = cv.VideoCapture(0)
 
