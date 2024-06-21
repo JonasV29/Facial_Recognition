@@ -3,6 +3,7 @@ import numpy as np
 from PIL import Image
 import os
 
+recognizer = cv.face.LBPHFaceReccognizer_create()
 path ="dataset"
 
 def getImageID(path):
@@ -13,7 +14,15 @@ def getImageID(path):
         faceImage = Image.open(imagePaths).convert('L')
         faceNP = np.array(faceImage)
         Id= (os.path.split(imagePaths)[-1].split(".")[1])
-    return Id
+        Id = int(Id)
+        faces.append(faceNP)
+        cv.imshow("Training", faceNP)
+        cv.waitkey(1)
+    return Id, faces
 
 
-print(getImageID(path))
+IDs, facedata = getImageID(path)
+recognizer.train(facedata, np.array(IDs))
+recognizer.white("Trainer.yml")
+cv.destroyAllWindows()
+print("Training Complete.............")
