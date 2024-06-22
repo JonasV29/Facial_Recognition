@@ -3,7 +3,7 @@ import numpy as np
 from PIL import Image
 import os
 
-recognizer = cv.face.LBPHFaceReccognizer_create()
+recognizer = cv.face.LBPHFaceRecognizer_create()
 path ="dataset"
 
 def getImageID(path):
