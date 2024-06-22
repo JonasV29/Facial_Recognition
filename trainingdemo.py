@@ -16,13 +16,14 @@ def getImageID(path):
         Id= (os.path.split(imagePaths)[-1].split(".")[1])
         Id = int(Id)
         faces.append(faceNP)
+        ids.append(Id)
         cv.imshow("Training", faceNP)
         cv.waitKey(1)
-    return Id, faces
+    return ids, faces
 
 
 IDs, facedata = getImageID(path)
 recognizer.train(facedata, np.array(IDs))
-recognizer.white("Trainer.yml")
+recognizer.write("Trainer.yml")
 cv.destroyAllWindows()
 print("Training Complete.............")

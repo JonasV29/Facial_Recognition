@@ -8,7 +8,7 @@ face_detect = cv.CascadeClassifier("haarcascade_frontalface_default.xml")
 recognizer = cv.face.LBPHFaceRecognizer_create()
 recognizer.read("Trainer.yml")
 
-name_list = ["", "Jonas Vitório"]
+name_list = ["", "Jonas Vitorio"]
 while True:
     ret,frame=video.read()
     gray = cv.cvtColor(frame, cv.COLOR_BGR2GRAY)
@@ -16,23 +16,19 @@ while True:
     for (x,y,w,h) in faces:
         serial, conf = recognizer.predict(gray[y:y+h, x:x+w])
         if conf>50:
-            cv.rectangle(frame, (x,y),(x+w,y+h),(0,0,255),1)
-            cv.rectangle(frame, (x,y),(x+w,y+h),(50,50,255),2)
-            cv.rectangle(frame, (x,y-40),(x+w,y+h),(50,50,255),-1)
-            cv.putText(frame, name_list[serial],(x,y-10), cv.FONT_HERSHEY_SIMPLEX, 0.8, (255,255,255),2)
+            cv.putText(frame, name_list[serial],(x,y-40), cv.FONT_HERSHEY_SIMPLEX, 1, (50,50,255),1)
+            cv.rectangle(frame, (x,y),(x+w,y+h),(50,50,255),1)
         else:
-            cv.rectangle(frame, (x,y),(x+w,y+h),(0,0,255),1)
-            cv.rectangle(frame, (x,y),(x+w,y+h),(50,50,255),2)
-            cv.rectangle(frame, (x,y-40),(x+w,y+h),(50,50,255),-1)
-            cv.putText(frame, name_list[serial],(x,y-10), cv.FONT_HERSHEY_SIMPLEX, 0.8, (255,255,255),2)
+            cv.putText(frame, "Laurentina Valente",(x,y-40), cv.FONT_HERSHEY_SIMPLEX,1, (50,50,255),2)
+            cv.rectangle(frame,(x,y),(x+w,y+h),(50,50,255),1)
 
     cv.imshow("Frame",frame)
 
     K = cv.waitKey(1)
 
-    if  k == ord("q"):
+    if  K == ord("q"):
         break
 
 video.release()
 cv.destroyAllWindows()
-print("Dataset colletion Done....")
+print("Facial Recognition Done....")
