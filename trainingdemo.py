@@ -17,7 +17,7 @@ def getImageID(path):
         Id = int(Id)
         faces.append(faceNP)
         cv.imshow("Training", faceNP)
-        cv.waitkey(1)
+        cv.waitKey(1)
     return Id, faces
 
 
