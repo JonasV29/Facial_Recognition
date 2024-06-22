@@ -8,7 +8,7 @@ face_detect = cv.CascadeClassifier("haarcascade_frontalface_default.xml")
 recognizer = cv.face.LBPHFaceRecognizer_create()
 recognizer.read("Trainer.yml")
 
-name_list = ["", "Jonas Vitorio"]
+name_list = ["", "Humano"]
 while True:
     ret,frame=video.read()
     gray = cv.cvtColor(frame, cv.COLOR_BGR2GRAY)
