@@ -19,14 +19,14 @@ while True:
     for (x,y,w,h) in faces:
         serial, conf = recognizer.predict(gray[y:y+h, x:x+w])
         if conf>50:
-            cv.putText(frame,name_list[serial],(x,y-10), cv.FONT_HERSHEY_SIMPLEX, 0.8, (50,50,255),2)
+            cv.putText(frame,name_list[serial],(x,y-40), cv.FONT_HERSHEY_SIMPLEX, 1, (50,50,255),2)
             cv.rectangle(frame, (x,y),(x+w,y+h),(50,50,255),1)
         else:
-            cv.putText(frame,"Unknown",(x,y-10), cv.FONT_HERSHEY_SIMPLEX,0.8, (50,50,255),2)
+            cv.putText(frame,"Unknown",(x,y-40), cv.FONT_HERSHEY_SIMPLEX,1, (50,50,255),2)
             cv.rectangle(frame,(x,y),(x+w,y+h),(50,50,255),1)
    
     
-    cv.imshow("frame", frame)
+    cv.imshow("Frame", frame)
 
     K = cv.waitKey(1)
 
