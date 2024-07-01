@@ -1,5 +1,6 @@
 import cv2 as cv #importing OpenCV library
 
+
 video = cv.VideoCapture(0)
 
 face_detect = cv.CascadeClassifier("haarcascade_frontalface_default.xml")
@@ -8,7 +9,9 @@ face_detect = cv.CascadeClassifier("haarcascade_frontalface_default.xml")
 recognizer = cv.face.LBPHFaceRecognizer_create()
 recognizer.read("Trainer.yml")
 
-name_list = ["", "Humano"]
+name_list = ["Humano","Celular","Caneta"]
+
+
 while True:
     ret,frame=video.read()
     gray = cv.cvtColor(frame, cv.COLOR_BGR2GRAY)
@@ -21,8 +24,9 @@ while True:
         else:
             cv.putText(frame,"Desconhecido",(x,y-40), cv.FONT_HERSHEY_SIMPLEX,1, (50,50,255),1)
             cv.rectangle(frame,(x,y),(x+w,y+h),(50,50,255),1)
-
-    cv.imshow("Frame",frame)
+   
+    
+    cv.imshow("Image", frame)
 
     K = cv.waitKey(1)
 

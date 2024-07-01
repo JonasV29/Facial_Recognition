@@ -1,5 +1,6 @@
 import cv2 as cv #importing OpenCV library
 
+
 video = cv.VideoCapture(0)
 
 face_detect = cv.CascadeClassifier("haarcascade_frontalface_default.xml")
