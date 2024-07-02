@@ -9,11 +9,12 @@ face_detect = cv.CascadeClassifier("haarcascade_frontalface_default.xml")
 recognizer = cv.face.LBPHFaceRecognizer_create()
 recognizer.read("Trainer.yml")
 
-name_list = ["","Jonas Vitorio","Jason"]
+name_list = ["","Jonas Vitorio","Jason", "Bruno", "Jose"]
+# lista dos nomes dos usuários que vão ser lido seus rostos
 
 
 while True:
-    ret,frame=video.read()
+    ret,frame=video.read()   # aqui mostrar como vai funcionar o o nome onde aparece em cima do rosto do usuário
     gray = cv.cvtColor(frame, cv.COLOR_BGR2GRAY)
     faces = face_detect.detectMultiScale(gray, 1.3, 5)
     for (x,y,w,h) in faces:

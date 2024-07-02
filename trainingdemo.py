@@ -2,11 +2,12 @@ import cv2 as cv
 import numpy as np
 from PIL import Image
 import os
+# Importando as bibliotecas
 
 recognizer = cv.face.LBPHFaceRecognizer_create()
 path ="dataset"
 
-def getImageID(path):
+def getImageID(path):  # faz o treinamento da imagem retornando seu ID respectivo
     imagePath = [os.path.join(path, f) for f in os.listdir(path)]
     faces=[]
     ids=[]
