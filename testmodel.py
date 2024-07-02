@@ -9,7 +9,7 @@ face_detect = cv.CascadeClassifier("haarcascade_frontalface_default.xml")
 recognizer = cv.face.LBPHFaceRecognizer_create()
 recognizer.read("Trainer.yml")
 
-name_list = [ "","Jonas Vitorio", "Jason"]
+name_list = ["","Jonas Vitorio","Jason"]
 
 
 while True:
@@ -22,7 +22,7 @@ while True:
             cv.putText(frame,name_list[serial],(x,y-40), cv.FONT_HERSHEY_SIMPLEX, 1, (50,50,255),2)
             cv.rectangle(frame, (x,y),(x+w,y+h),(50,50,255),1)
         else:
-            cv.putText(frame,"Unknown",(x,y-40), cv.FONT_HERSHEY_SIMPLEX,1, (50,50,255),2)
+            cv.putText(frame, "Desconhecido",(x,y-40), cv.FONT_HERSHEY_SIMPLEX,1, (50,50,255),2)
             cv.rectangle(frame,(x,y),(x+w,y+h),(50,50,255),1)
    
     

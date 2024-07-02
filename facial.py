@@ -6,7 +6,7 @@ video = cv.VideoCapture(0)
 face_detect = cv.CascadeClassifier("haarcascade_frontalface_default.xml")
 
 id = input("Enter Your ID:")
-id = int(id)
+#id = int(id)
 count = 0
 
 while True:
